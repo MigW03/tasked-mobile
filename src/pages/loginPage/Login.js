@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity, Image, TextInput, StatusBar, Keyboard, Al
 import {styles, placeholderTextColor, statusBackground, statusStyle, eyeIconColor, inputUnderlineColor, googleIconbg, indicatorColor} from './styles'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
+import '../../../assets/translations/i18n'
+import {useTranslation} from 'react-i18next';
 import auth from '@react-native-firebase/auth'
 
 function Login({navigation}) {
@@ -10,6 +12,9 @@ function Login({navigation}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [signInLoading, setSignInLoading] = useState(false);
+
+    const {t, i18n} = useTranslation();
+    const [currentLanguage,setLanguage] =useState('en')
     
 
     function login() {
@@ -98,13 +103,13 @@ function Login({navigation}) {
             
             <View style={styles.welcomeView}>
                 <Image source={require('../../../assets/logo.png')} resizeMethod='auto' resizeMode='contain' style={{width: 87 }}/>
-                <Text style={styles.welcomeText}>Bem vindo de volta ao Tasked!</Text>
+                <Text style={styles.welcomeText}>{t('loginWelcomeText')}</Text>
             </View>
             
 
                 
             <View style={styles.formView}>
-                <Text style={styles.pageTitle}>Login</Text>
+                <Text style={styles.pageTitle}>{t("loginPageTitle")}</Text>
                 <TextInput
                     placeholder="E-mail"
                     autoCorrect={false}
@@ -117,7 +122,7 @@ function Login({navigation}) {
                 />
                 <View style={styles.passwordView}>
                     <TextInput
-                        placeholder="Senha"
+                        placeholder={t("password")}
                         value={password}
                         autoCapitalize="none"
                         autoCorrect={false}
@@ -138,7 +143,7 @@ function Login({navigation}) {
                             signInLoading ? (
                                 <ActivityIndicator size='small' color={indicatorColor} />
                             ) : (
-                                <Text style={styles.loginButtonText}>Entrar</Text>
+                                <Text style={styles.loginButtonText}>{t("login")}</Text>
                             )
                         }
                     </TouchableOpacity>
@@ -148,13 +153,13 @@ function Login({navigation}) {
                 </View>
 
                 <TouchableOpacity onPress={forgotPassword}>
-                    <Text style={styles.forgotPasswordText}>Esqueci minha senha!</Text>
+                    <Text style={styles.forgotPasswordText}>{t('loginForgotPasswordText')}</Text>
                 </TouchableOpacity>
                 <View style={styles.divider} />
                 <View style={styles.registerView}>
-                    <Text style={styles.registerText}>Não possui conta?</Text>
+                    <Text style={styles.registerText}>{t('loginDontHaveAccountText')}</Text>
                     <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-                        <Text style={styles.registerTouchable}>Cadastro</Text>
+                        <Text style={styles.registerTouchable}>{t("loginRegisterButtonText")}</Text>
                     </TouchableOpacity>
                 </View>
             </View>

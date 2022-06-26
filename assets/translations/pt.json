@@ -1,5 +1,11 @@
 {
     "translation" : {
-        "test": "Teste d idioma"
+        "loginWelcomeText" : "Bem vindo de volta ao Tasked!",
+        "loginPageTitle": "Login",
+        "password": "Senha",
+        "login": "Entrar",
+        "loginForgotPasswordText": "Esqueci minha senha!",
+        "loginDontHaveAccountText": "Não possui conta?",
+        "loginRegisterButtonText": "Cadastro"
     }
 }
