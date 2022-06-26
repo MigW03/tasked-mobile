@@ -29,5 +29,5 @@ export const colors = {
         switch_bg_off: "#494949",
         drawer_selection: "#6C6C6C"
 
-    }
+    },
 }

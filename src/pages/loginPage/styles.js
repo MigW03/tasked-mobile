@@ -8,6 +8,7 @@ export const statusStyle = theme == 'light' ? 'dark-content' : 'light-content'
 export const eyeIconColor = colors[theme].brand
 export const inputUnderlineColor = colors[theme].brand
 export const googleIconbg = colors[theme].background
+export const indicatorColor = colors[theme].items_bg
 
 export const styles = StyleSheet.create({
     container: {
